@@ -76,7 +76,7 @@ Shader *dynamicShader;
 // Carga la información del modelo
 Model	*escenario;
 Model   *door;
-Model   *moon;
+Model   *globos;
 Model   *gridMesh;
 
 // Modelos animados
@@ -353,7 +353,7 @@ bool Update() {
 
 
 	// Actividad 5.2
-	/*
+	
 	{
 		// Activamos el shader de Phong
 		proceduralShader->use();
@@ -366,24 +366,22 @@ bool Update() {
 		proceduralShader->setMat4("projection", projection);
 		proceduralShader->setMat4("view", view);
 
-		// Aplicamos transformaciones del modelo
 		glm::mat4 model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));
 		proceduralShader->setMat4("model", model);
 
 		proceduralShader->setFloat("time", proceduralTime);
-		proceduralShader->setFloat("radius", 5.0f);
-		proceduralShader->setFloat("height", 0.0f);
+		proceduralShader->setFloat("radius", 10.0f);
+		proceduralShader->setFloat("height", 20.0f);
 
-		moon->Draw(*proceduralShader);
+		globos->Draw(*proceduralShader);
 		proceduralTime += 0.01;
 
 	}
 
 	glUseProgram(0);
-	*/
 
 	// Actividad 5.3
 	
