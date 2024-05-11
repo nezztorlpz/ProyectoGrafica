@@ -181,12 +181,14 @@ bool Start() {
 
 	//ANIMACIONES
 
-	character01 = new AnimatedModel("models/ProyectoGraficaModelos/animaciones2/girl1s.fbx");
-	//character02 = new AnimatedModel("models/ProyectoGraficaModelos/animaciones2/kid1dance.fbx");
-	//character03 = new AnimatedModel("models/ProyectoGraficaModelos/animaciones2/man2s.fbx");
-	//character04 = new AnimatedModel("models/ProyectoGraficaModelos/animaciones2/man2ss.fbx");
-	//character05 = new AnimatedModel("models/ProyectoGraficaModelos/animaciones2/wmnb.fbx");
-	//character06 = new AnimatedModel("models/ProyectoGraficaModelos/animaciones2/wmnop.fbx");
+	//ANIMACIONES
+
+	character01 = new AnimatedModel("models/ProyectoGraficaModelos/animaciones2/chica1.fbx");
+	character02 = new AnimatedModel("models/ProyectoGraficaModelos/animaciones2/old1.fbx");
+	character03 = new AnimatedModel("models/ProyectoGraficaModelos/animaciones2/wmnb.fbx");
+	character04 = new AnimatedModel("models/ProyectoGraficaModelos/animaciones2/kid1dance.fbx");
+	character05 = new AnimatedModel("models/ProyectoGraficaModelos/animaciones2/girl1s.fbx");
+	character06 = new AnimatedModel("models/ProyectoGraficaModelos/animaciones2/man2s.fbx");
 
 
 	// Cubemap
@@ -412,158 +414,155 @@ bool Update() {
 		wavesTime += 0.01;
 
 	}
-
-	glUseProgram(0);
-	
 	
 	// Objeto animado
 
-	{
-		//Personaje 1
-		character01->UpdateAnimation(deltaTime);
+{
+	//Personaje 1 Chica hablando
+	character01->UpdateAnimation(deltaTime);
 
-		// Activación del shader del personaje
-		dynamicShader->use();
+	// Activación del shader del personaje
+	dynamicShader->use();
 
-		// Aplicamos transformaciones de proyección y cámara (si las hubiera)
-		dynamicShader->setMat4("projection", projection);
-		dynamicShader->setMat4("view", view);
+	// Aplicamos transformaciones de proyección y cámara (si las hubiera)
+	dynamicShader->setMat4("projection", projection);
+	dynamicShader->setMat4("view", view);
 
-		// Aplicamos transformaciones del modelo
-		glm::mat4 model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(3.0f, 0.045f, 13.45f));// translate it down so it's at the center of the scene
-		model = glm::rotate(model, glm::radians(rotateCharacter), glm::vec3(0.0, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.0025f, 0.0025f, 0.0025f));	// it's a bit too big for our scene, so scale it down
+	// Aplicamos transformaciones del modelo
+	glm::mat4 model = glm::mat4(1.0f);
+	model = glm::translate(model, glm::vec3(81.7f, -0.25f, 7.35f)); // translate it down so it's at the center of the scene
+	model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0, 1.0f, 0.0f));
+	model = glm::scale(model, glm::vec3(0.0018f, 0.0018f, 0.0018f));	// it's a bit too big for our scene, so scale it down
+	// it's a bit too big for our scene, so scale it down
 
-		dynamicShader->setMat4("model", model);
+	dynamicShader->setMat4("model", model);
 
-		dynamicShader->setMat4("gBones", MAX_RIGGING_BONES, character01->gBones);
+	dynamicShader->setMat4("gBones", MAX_RIGGING_BONES, character01->gBones);
 
-		// Dibujamos el modelo
-		character01->Draw(*dynamicShader); }
-		/*
-		//Personaje 2
+	// Dibujamos el modelo
+	character01->Draw(*dynamicShader);
 
-		character02->UpdateAnimation(deltaTime);
+	//Personaje 2 Viejito granjero
 
-		// Activación del shader del personaje
-		dynamicShader->use();
+	character02->UpdateAnimation(deltaTime);
 
-		// Aplicamos transformaciones de proyección y cámara (si las hubiera)
-		dynamicShader->setMat4("projection", projection);
-		dynamicShader->setMat4("view", view);
+	// Activación del shader del personaje
+	dynamicShader->use();
 
-		// Aplicamos transformaciones del modelo
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(4.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
-		model = glm::rotate(model, glm::radians(rotateCharacter), glm::vec3(0.0, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));	// it's a bit too big for our scene, so scale it down
+	// Aplicamos transformaciones de proyección y cámara (si las hubiera)
+	dynamicShader->setMat4("projection", projection);
+	dynamicShader->setMat4("view", view);
 
-		dynamicShader->setMat4("model", model);
+	// Aplicamos transformaciones del modelo
+	model = glm::mat4(1.0f);
+	model = glm::translate(model, glm::vec3(82.0f, -0.25f, 6.35f)); // translate it down so it's at the center of the scene
+	model = glm::rotate(model, glm::radians(-40.0f), glm::vec3(0.0, 1.0f, 0.0f));
+	model = glm::scale(model, glm::vec3(0.0019f, 0.0019f, 0.0019f));	// it's a bit too big for our scene, so scale it down
 
-		dynamicShader->setMat4("gBones", MAX_RIGGING_BONES, character02->gBones);
+	dynamicShader->setMat4("model", model);
 
-		// Dibujamos el modelo
-		character02->Draw(*dynamicShader);
+	dynamicShader->setMat4("gBones", MAX_RIGGING_BONES, character02->gBones);
 
-		//Personaje 3
+	// Dibujamos el modelo
+	character02->Draw(*dynamicShader);
 
-		character03->UpdateAnimation(deltaTime);
+	//Personaje 3 Mujer bailando
 
-		// Activación del shader del personaje
-		dynamicShader->use();
+	character03->UpdateAnimation(deltaTime);
 
-		// Aplicamos transformaciones de proyección y cámara (si las hubiera)
-		dynamicShader->setMat4("projection", projection);
-		dynamicShader->setMat4("view", view);
+	// Activación del shader del personaje
+	dynamicShader->use();
 
-		// Aplicamos transformaciones del modelo
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(5.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
-		model = glm::rotate(model, glm::radians(rotateCharacter), glm::vec3(0.0, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));	// it's a bit too big for our scene, so scale it down
+	// Aplicamos transformaciones de proyección y cámara (si las hubiera)
+	dynamicShader->setMat4("projection", projection);
+	dynamicShader->setMat4("view", view);
 
-		dynamicShader->setMat4("model", model);
+	// Aplicamos transformaciones del modelo
+	model = glm::mat4(1.0f);
+	model = glm::translate(model, glm::vec3(-25.5f, 0.0f, -3.0f)); // translate it down so it's at the center of the scene
+	model = glm::rotate(model, glm::radians(rotateCharacter), glm::vec3(0.0, 1.0f, 0.0f));
+	model = glm::scale(model, glm::vec3(0.0013f, 0.0013f, 0.0013f));	// it's a bit too big for our scene, so scale it down
 
-		dynamicShader->setMat4("gBones", MAX_RIGGING_BONES, character03->gBones);
+	dynamicShader->setMat4("model", model);
 
-		// Dibujamos el modelo
-		character03->Draw(*dynamicShader);
+	dynamicShader->setMat4("gBones", MAX_RIGGING_BONES, character03->gBones);
 
-		//Personaje 4
+	// Dibujamos el modelo
+	character03->Draw(*dynamicShader);
 
-		character04->UpdateAnimation(deltaTime);
+	//Personaje 4 Niño bailando
 
-		// Activación del shader del personaje
-		dynamicShader->use();
+	character04->UpdateAnimation(deltaTime);
 
-		// Aplicamos transformaciones de proyección y cámara (si las hubiera)
-		dynamicShader->setMat4("projection", projection);
-		dynamicShader->setMat4("view", view);
+	// Activación del shader del personaje
+	dynamicShader->use();
 
-		// Aplicamos transformaciones del modelo
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(6.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
-		model = glm::rotate(model, glm::radians(rotateCharacter), glm::vec3(0.0, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));	// it's a bit too big for our scene, so scale it down
+	// Aplicamos transformaciones de proyección y cámara (si las hubiera)
+	dynamicShader->setMat4("projection", projection);
+	dynamicShader->setMat4("view", view);
 
-		dynamicShader->setMat4("model", model);
+	// Aplicamos transformaciones del modelo
+	model = glm::mat4(1.0f);
+	model = glm::translate(model, glm::vec3(-24.5f, 0.0f, -2.0f)); // translate it down so it's at the center of the scene
+	model = glm::rotate(model, glm::radians(rotateCharacter), glm::vec3(0.0, 1.0f, 0.0f));
+	model = glm::scale(model, glm::vec3(0.0016f, 0.0016f, 0.0016f));// it's a bit too big for our scene, so scale it down
 
-		dynamicShader->setMat4("gBones", MAX_RIGGING_BONES, character04->gBones);
+	dynamicShader->setMat4("model", model);
 
-		// Dibujamos el modelo
-		character04->Draw(*dynamicShader);
+	dynamicShader->setMat4("gBones", MAX_RIGGING_BONES, character04->gBones);
 
-		//Personaje 5
+	// Dibujamos el modelo
+	character04->Draw(*dynamicShader);
 
-		character05->UpdateAnimation(deltaTime);
+	//Personaje 5 Niña sentada
 
-		// Activación del shader del personaje
-		dynamicShader->use();
+	character05->UpdateAnimation(deltaTime);
 
-		// Aplicamos transformaciones de proyección y cámara (si las hubiera)
-		dynamicShader->setMat4("projection", projection);
-		dynamicShader->setMat4("view", view);
+	// Activación del shader del personaje
+	dynamicShader->use();
 
-		// Aplicamos transformaciones del modelo
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(7.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
-		model = glm::rotate(model, glm::radians(rotateCharacter), glm::vec3(0.0, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));	// it's a bit too big for our scene, so scale it down
+	// Aplicamos transformaciones de proyección y cámara (si las hubiera)
+	dynamicShader->setMat4("projection", projection);
+	dynamicShader->setMat4("view", view);
 
-		dynamicShader->setMat4("model", model);
+	// Aplicamos transformaciones del modelo
+	model = glm::mat4(1.0f);
+	model = glm::translate(model, glm::vec3(38.4f, 0.0f, 0.25f)); // translate it down so it's at the center of the scene
+	model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0, 1.0f, 0.0f));
+	model = glm::scale(model, glm::vec3(0.0022f, 0.0022f, 0.0022f));	// it's a bit too big for our scene, so scale it down
 
-		dynamicShader->setMat4("gBones", MAX_RIGGING_BONES, character05->gBones);
+	dynamicShader->setMat4("model", model);
 
-		// Dibujamos el modelo
-		character05->Draw(*dynamicShader);
+	dynamicShader->setMat4("gBones", MAX_RIGGING_BONES, character05->gBones);
 
-		//Personaje 6
+	// Dibujamos el modelo
+	character05->Draw(*dynamicShader);
 
-		character06->UpdateAnimation(deltaTime);
+	//Personaje 6 Señor sentado
 
-		// Activación del shader del personaje
-		dynamicShader->use();
+	//character06->UpdateAnimation(deltaTime);
 
-		// Aplicamos transformaciones de proyección y cámara (si las hubiera)
-		dynamicShader->setMat4("projection", projection);
-		dynamicShader->setMat4("view", view);
+	// Activación del shader del personaje
+	dynamicShader->use();
 
-		// Aplicamos transformaciones del modelo
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(8.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
-		model = glm::rotate(model, glm::radians(rotateCharacter), glm::vec3(0.0, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));	// it's a bit too big for our scene, so scale it down
+	// Aplicamos transformaciones de proyección y cámara (si las hubiera)
+	dynamicShader->setMat4("projection", projection);
+	dynamicShader->setMat4("view", view);
 
-		dynamicShader->setMat4("model", model);
+	// Aplicamos transformaciones del modelo
+	model = glm::mat4(1.0f);
+	model = glm::translate(model, glm::vec3(38.3f, 0.0f, 2.25f)); // translate it down so it's at the center of the scene
+	model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0, 1.0f, 0.0f));
+	model = glm::scale(model, glm::vec3(0.0022f, 0.0022f, 0.0022f));	// it's a bit too big for our scene, so scale it down
 
-		dynamicShader->setMat4("gBones", MAX_RIGGING_BONES, character06->gBones);
+	dynamicShader->setMat4("model", model);
 
-		// Dibujamos el modelo
-		character06->Draw(*dynamicShader);
+	dynamicShader->setMat4("gBones", MAX_RIGGING_BONES, character06->gBones);
 
+	// Dibujamos el modelo
+	character06->Draw(*dynamicShader);
 	}
-*/
+
 	glUseProgram(0); 
 
 	// glfw: swap buffers 
