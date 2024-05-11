@@ -399,9 +399,9 @@ bool Update() {
 
 		// Aplicamos transformaciones del modelo
 		glm::mat4 model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0.0f, 0.7f, 0.0f));
+		model = glm::translate(model, glm::vec3(0.0f, 0.3f, 0.0f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(1.3f, 1.3f, 2.0f));
+		model = glm::scale(model, glm::vec3(1.07f, 1.07f, 2.0f));
 		wavesShader->setMat4("model", model);
 
 		wavesShader->setFloat("time", wavesTime);
