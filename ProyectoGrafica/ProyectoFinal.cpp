@@ -174,7 +174,7 @@ bool Start() {
 	// Dibujar en malla de alambre
 	// glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
 
-	escenario = new Model("models/PruebaEs2.fbx");
+	escenario = new Model("models/PruebaEs4_4.fbx");
 	door = new Model("models/IllumModels/Door.fbx");
 	moon = new Model("models/IllumModels/moon.fbx");
 	gridMesh = new Model("models/IllumModels/grid.fbx");
@@ -194,12 +194,12 @@ bool Start() {
 	// Cubemap
 	vector<std::string> faces
 	{
-		"textures/cubemap/01/posx.png",
-		"textures/cubemap/01/negx.png",
-		"textures/cubemap/01/posy.png",
-		"textures/cubemap/01/negy.png",
-		"textures/cubemap/01/posz.png",
-		"textures/cubemap/01/negz.png"
+		"textures/cubemap/04/posx.png",
+		"textures/cubemap/04/negx.png",
+		"textures/cubemap/04/posy.png",
+		"textures/cubemap/04/negy.png",
+		"textures/cubemap/04/posz.png",
+		"textures/cubemap/04/negz.png"
 	};
 	mainCubeMap = new CubeMap();
 	mainCubeMap->loadCubemap(faces);
