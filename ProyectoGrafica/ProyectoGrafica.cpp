@@ -194,12 +194,12 @@ bool Start() {
 	// Cubemap
 	vector<std::string> faces
 	{
-		"textures/cubemap/04/posx.png",
-		"textures/cubemap/04/negx.png",
-		"textures/cubemap/04/posy.png",
-		"textures/cubemap/04/negy.png",
-		"textures/cubemap/04/posz.png",
-		"textures/cubemap/04/negz.png"
+		"textures/cubemap/04/posx.jpg",
+		"textures/cubemap/04/negx.jpg",
+		"textures/cubemap/04/posy.jpg",
+		"textures/cubemap/04/negy.jpg",
+		"textures/cubemap/04/posz.jpg",
+		"textures/cubemap/04/negz.jpg"
 	};
 	mainCubeMap = new CubeMap();
 	mainCubeMap->loadCubemap(faces);
