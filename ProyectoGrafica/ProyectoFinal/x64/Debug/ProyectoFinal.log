@@ -1,0 +1,4 @@
+﻿  09-Animation.cpp
+C:\Users\sergl\source\cg\09_10_Animation\09-Animation.cpp(384,25): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\sergl\source\cg\09_10_Animation\09-Animation.cpp(417,20): warning C4305: '+=': truncation from 'double' to 'float'
+  ProyectoFinal.vcxproj -> C:\Users\sergl\source\cg\bin\ProyectoFinal.exe
