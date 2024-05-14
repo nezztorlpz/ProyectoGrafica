@@ -176,7 +176,7 @@ bool Start() {
 
 	escenario = new Model("models/PruebaEs4_4.fbx");
 	door = new Model("models/IllumModels/Door.fbx");
-	moon = new Model("models/IllumModels/moon.fbx");
+	globos = new Model("models/IllumModels/moon.fbx");
 	gridMesh = new Model("models/IllumModels/grid.fbx");
 
 	//ANIMACIONES
