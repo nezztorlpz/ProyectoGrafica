@@ -9,7 +9,7 @@ in vec3 Normal_cameraspace;
 
 uniform mat4 view;
 
-uniform sampler2D texture_diffuse1; // textura asociada al objetos
+uniform sampler2D texture_diffuse1;
 
 uniform vec4 MaterialAmbientColor;
 uniform vec4 MaterialDiffuseColor;
@@ -26,7 +26,7 @@ uniform struct Light {
    vec4  Power;
    int   alphaIndex;
    float distance;
-} allLights[MAX_LIGHTS]; //propiedades de cada una de las fuentes de iluminacion, posicion, , . 
+} allLights[MAX_LIGHTS];
 
 vec4 ApplyLight(Light light, vec3 N, vec3 L, vec3 E) {
     
@@ -69,6 +69,6 @@ void main()
     ex_color.a = transparency;
 
     vec4 texel = texture(texture_diffuse1, TexCoords);
-   //FragColor = ex_color;
-   FragColor = texel * ex_color;
+
+    FragColor = texel * ex_color;
 }
